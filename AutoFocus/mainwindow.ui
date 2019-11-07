@@ -30,7 +30,7 @@
      <property name="geometry">
       <rect>
        <x>130</x>
-       <y>30</y>
+       <y>40</y>
        <width>161</width>
        <height>22</height>
       </rect>
@@ -43,13 +43,26 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>30</y>
+       <y>40</y>
        <width>91</width>
        <height>16</height>
       </rect>
      </property>
      <property name="text">
       <string>Linsenauswahl</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pbLinseHinzufuegen">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>80</y>
+       <width>271</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Linse Hinzufügen</string>
      </property>
     </widget>
    </widget>
@@ -65,6 +78,29 @@
     <property name="title">
      <string>Parameter Eingabe</string>
     </property>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>40</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Objektweite</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="leObjektweite">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>40</y>
+       <width>113</width>
+       <height>21</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="gpAusgabe">
     <property name="geometry">
@@ -78,6 +114,42 @@
     <property name="title">
      <string>Ausgabe</string>
     </property>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>40</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Bildweite</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="leBildweite">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>40</y>
+       <width>113</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QOpenGLWidget" name="openGLGrafik">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>40</y>
+       <width>391</width>
+       <height>161</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
