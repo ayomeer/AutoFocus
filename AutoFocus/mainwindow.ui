@@ -6,150 +6,232 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>700</width>
+    <height>420</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>AutoFocus</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QGroupBox" name="gpLinsen">
+   <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>311</width>
-      <height>201</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Linsen</string>
-    </property>
-    <widget class="QComboBox" name="comboBox">
-     <property name="geometry">
-      <rect>
-       <x>130</x>
-       <y>40</y>
-       <width>161</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="currentText">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>40</y>
-       <width>91</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Linsenauswahl</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pbLinseHinzufuegen">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>80</y>
-       <width>271</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Linse Hinzufügen</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QGroupBox" name="gp_ParamEingabe">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>20</y>
-      <width>361</width>
-      <height>201</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Parameter Eingabe</string>
-    </property>
-    <widget class="QLabel" name="label_2">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>40</y>
-       <width>91</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Objektweite</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="leObjektweite">
-     <property name="geometry">
-      <rect>
-       <x>120</x>
-       <y>40</y>
-       <width>113</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QGroupBox" name="gpAusgabe">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>230</y>
+      <x>0</x>
+      <y>0</y>
       <width>701</width>
-      <height>221</height>
+      <height>400</height>
      </rect>
     </property>
-    <property name="title">
-     <string>Ausgabe</string>
-    </property>
-    <widget class="QLabel" name="label_3">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>40</y>
-       <width>91</width>
-       <height>16</height>
-      </rect>
+    <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0">
+     <property name="spacing">
+      <number>20</number>
      </property>
-     <property name="text">
-      <string>Bildweite</string>
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
      </property>
-    </widget>
-    <widget class="QLineEdit" name="leBildweite">
-     <property name="geometry">
-      <rect>
-       <x>110</x>
-       <y>40</y>
-       <width>113</width>
-       <height>21</height>
-      </rect>
+     <property name="leftMargin">
+      <number>20</number>
      </property>
-     <property name="readOnly">
-      <bool>true</bool>
+     <property name="topMargin">
+      <number>20</number>
      </property>
-    </widget>
-    <widget class="QOpenGLWidget" name="openGLGrafik">
-     <property name="geometry">
-      <rect>
-       <x>290</x>
-       <y>40</y>
-       <width>391</width>
-       <height>161</height>
-      </rect>
+     <property name="rightMargin">
+      <number>20</number>
      </property>
-    </widget>
+     <property name="bottomMargin">
+      <number>20</number>
+     </property>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0">
+       <property name="spacing">
+        <number>20</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>5</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>5</number>
+       </property>
+       <item>
+        <widget class="QGroupBox" name="gpLinsen">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>320</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="title">
+          <string>Linsen</string>
+         </property>
+         <widget class="QComboBox" name="comboBox">
+          <property name="geometry">
+           <rect>
+            <x>130</x>
+            <y>40</y>
+            <width>160</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="currentText">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_Linsenauswahl">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>40</y>
+            <width>90</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Linsenauswahl</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pbLinseHinzufuegen">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>80</y>
+            <width>272</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Linse hinzufügen</string>
+          </property>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="gp_ParamEingabe">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="title">
+          <string>Parameter Eingabe</string>
+         </property>
+         <widget class="QLabel" name="label_Objektweite">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>40</y>
+            <width>90</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Objektweite</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="leObjektweite">
+          <property name="geometry">
+           <rect>
+            <x>120</x>
+            <y>40</y>
+            <width>110</width>
+            <height>21</height>
+           </rect>
+          </property>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="gpAusgabe">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>208</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="title">
+        <string>Ausgabe</string>
+       </property>
+       <widget class="QLabel" name="label_Bildweite">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>40</y>
+          <width>90</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Bildweite</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="leBildweite">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>40</y>
+          <width>110</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QOpenGLWidget" name="openGLGrafik">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>40</y>
+          <width>390</width>
+          <height>150</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -157,8 +239,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>21</height>
+     <width>700</width>
+     <height>25</height>
     </rect>
    </property>
   </widget>
