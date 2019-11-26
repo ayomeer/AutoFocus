@@ -15,6 +15,11 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_pbLinseHinzufuegen_clicked();
+
+    void on_leObjektweite_editingFinished();
+
 private:
     Ui::MainWindow *ui;
 };
