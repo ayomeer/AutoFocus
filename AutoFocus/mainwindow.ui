@@ -82,7 +82,7 @@
          <property name="title">
           <string>Linsen</string>
          </property>
-         <widget class="QComboBox" name="comboBox">
+         <widget class="QComboBox" name="cbBrennweite">
           <property name="geometry">
            <rect>
             <x>130</x>

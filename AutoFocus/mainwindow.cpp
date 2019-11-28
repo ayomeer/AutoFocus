@@ -6,10 +6,24 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    // Objekte erzeugen
+    data = new Daten(parent);
+    lens = new Linse(parent);
+    calc = new Berechnung(parent);
+    //grafic = new Grafik(parent);
+
+    data->initComboBox(ui->cbBrennweite);
 }
 
 MainWindow::~MainWindow()
 {
+    // Objekte loeschen
+    delete data;
+    delete lens;
+    delete calc;
+    // delete grafic;
+
     delete ui;
 }
 
@@ -21,19 +35,55 @@ MainWindow::~MainWindow()
  */
 void MainWindow::on_pbLinseHinzufuegen_clicked()
 {
-    // Example, wie man den Text ändert
-    ui->leBildweite->setText("Example");
+    // Example
+    ui->leBildweite->setText("+");
+    //
+
+    lens->addLinse(ui->cbBrennweite);
 }
 
 /**
  * @brief   Berechnung der Bildweite mit Überprüfung der Eingabewerte
- * @todo    Überprüfung der Eingabewerte (Linse - Linse ausgewählt, Objektweite - positive Zahl)
+ * @todo    Überprüfung der Eingabewerte (Linse - Linse ausgewählt (siehe getBrennweite), Objektweite - positive Zahl (QString))
  *          Ausgabe der Bildweite und der Visualisierung
  * @param   -
  * @return  -
  */
 void MainWindow::on_leObjektweite_editingFinished()
 {
-    // Example, wie man den Text von Objektweite in Bildweite einfügt
-    ui->leBildweite->setText(ui->leObjektweite->text());
+    if (data->getBrennweite(ui->cbBrennweite) == 0 || data->getObjektweite(ui->leObjektweite) == "") {
+        ui->leBildweite->setText("");
+        calc->fehlermeldung();
+
+    }
+    else {
+        // Example
+        ui->leBildweite->setText("1");
+        //
+
+        bool fehler = 0;
+
+        fehler = calc->testEingabe(data->getBrennweite(ui->cbBrennweite), data->getObjektweite(ui->leObjektweite));
+
+        if(fehler) {
+            //Fehlermeldung mit QMessageBox
+            calc->fehlermeldung();
+        }
+        else {
+            // Berechnung und Anzeige, da alle Eingabeparameter gültig sind
+            calc->calcBildweite(ui->leBildweite, data->getBrennweite(ui->cbBrennweite), data->getObjektweite(ui->leObjektweite));
+            //grafic->updateGrafik(ui->openGLGrafik, data->getBrennweite(ui->cbBrennweite), data->getObjektweite(ui->leObjektweite));
+        }
+    }
+}
+
+/**
+ * @brief   Überprüfung und Berechnung mit der neuen Linse
+ * @param   - (index nicht notwendig)
+ * @return  -
+ */
+void MainWindow::on_cbBrennweite_currentIndexChanged(int index)
+{
+    // Ruft direkt die Event-Methode on_leObjektweite_editingFinished() auf
+    MainWindow::on_leObjektweite_editingFinished();
 }
