@@ -85,5 +85,6 @@ void MainWindow::on_leObjektweite_editingFinished()
 void MainWindow::on_cbBrennweite_currentIndexChanged(int index)
 {
     // Ruft direkt die Event-Methode on_leObjektweite_editingFinished() auf
+	// Kommentarversuch
     MainWindow::on_leObjektweite_editingFinished();
 }
