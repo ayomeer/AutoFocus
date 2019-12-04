@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>AutoFocus - neue Linse</string>
+   <string>AutoFocus</string>
   </property>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
