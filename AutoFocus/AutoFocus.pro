@@ -29,6 +29,7 @@ HEADERS += \
     mainwindow.h
 
 FORMS += \
+    linse.ui \
     mainwindow.ui
 
 # Default rules for deployment.

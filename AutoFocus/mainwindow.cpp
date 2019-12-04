@@ -9,7 +9,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Objekte erzeugen
     data = new Daten(parent);
-    lens = new Linse(parent);
     calc = new Berechnung(parent);
     //grafic = new Grafik(parent);
 
@@ -20,7 +19,6 @@ MainWindow::~MainWindow()
 {
     // Objekte loeschen
     delete data;
-    delete lens;
     delete calc;
     // delete grafic;
 
@@ -39,7 +37,10 @@ void MainWindow::on_pbLinseHinzufuegen_clicked()
     ui->leBildweite->setText("+");
     //
 
-    lens->addLinse(ui->cbBrennweite);
+    Linse l;
+    l.setComboBox(ui->cbBrennweite);
+    l.setModal(true);
+    l.exec();
 }
 
 /**
