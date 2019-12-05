@@ -1,6 +1,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QPainter>
+#include <QPaintEvent>
+#include <QMessageBox>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -51,6 +55,19 @@ void MainWindow::on_pbLinseHinzufuegen_clicked()
  */
 void MainWindow::on_leObjektweite_editingFinished()
 {
+    // ToDo: Set up QPainter Object and use it in widgets render method: ui->wgtRenderArea.render(QPainter* painter)
+    QPainter painter(ui->wgtRenderArea);
+    painter.setPen(Qt::blue);
+    painter.setFont(QFont("Arial", 30));
+    painter.drawText(rect(), Qt::AlignCenter, "Hello?");
+    painter.end();
+
+
+    QPainter *p = &painter;
+
+    ui->wgtRenderArea->render(p);
+
+    //Something seems wrong with this v
     if (data->getBrennweite(ui->cbBrennweite) == 0 || data->getObjektweite(ui->leObjektweite) == "") {
         ui->leBildweite->setText("");
         calc->fehlermeldung();
