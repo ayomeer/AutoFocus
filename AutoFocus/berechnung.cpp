@@ -28,7 +28,7 @@ void Berechnung::fehlermeldung()
 	QMessageBox msgBox;
 	msgBox.setText("Bitte eine positive Zahl eingeben");
 	msgBox.exec();
-	abc
+	
 }
 
 /**
@@ -38,5 +38,8 @@ void Berechnung::fehlermeldung()
  */
 void Berechnung::calcBildweite(QLineEdit *l, const int brennweite, const QString objektweite)
 {
-  l->((-brennweite)* objektweite / (objektweite - brennweite));
+	int bildweite;
+	bildweite = ((-brennweite) * objektweite / (objektweite - brennweite));
+	l->setText(QString::number(bildweite));
+	
 }
