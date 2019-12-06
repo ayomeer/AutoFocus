@@ -26,6 +26,7 @@ void Daten::initComboBox(QComboBox *cb)
  */
 int Daten::getBrennweite(const QComboBox *cb)
 {
+
     return cb->currentData().toInt();
 }
 
