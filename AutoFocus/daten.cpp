@@ -26,7 +26,16 @@ void Daten::initComboBox(QComboBox *cb)
  */
 int Daten::getBrennweite(const QComboBox *cb)
 {
-    //QString temp = cb->currentData().toString();
+    QString temp = cb->currentData().toString();
+    QRegularExpression re("(\\d+) (\\w+)");
+    QRegularExpressionMatch match = re.match(temp);  // "1234 mm"
+    if (match.hasMatch()) {
+        QString digits = match.captured(1); // "1234"
+        QString letters = match.captured(2); // "mm"
+    }
+
+
+
     return cb->currentData().toInt();
 }
 
