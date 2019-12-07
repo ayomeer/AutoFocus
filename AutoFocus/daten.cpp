@@ -19,22 +19,27 @@ void Daten::initComboBox(QComboBox *cb)
 }
 
 /**
- * @brief   Rueckgabe der Brennweite der ausgewaehlten Linse
+ * @brief   Rueckgabe der Brennweite als int sowie Laengeneinheit als str
  * @param   Pointer zu QComboBox cbBrennweite
  * @return  0: keine gewaehlte Linse
- *          sonst: Brennweite der gewaehlten Linse in mm
+ *          sonst: ?? Brennweite der gewaehlten Linse in mm
  */
 int Daten::getBrennweite(const QComboBox *cb)
 {
     QString temp = cb->currentData().toString();
     QRegularExpression re("(\\d+) (\\w+)");
     QRegularExpressionMatch match = re.match(temp);  // "1234 mm"
+
+    QString digits;
+    QString letters;
+
     if (match.hasMatch()) {
-        QString digits = match.captured(1); // "1234"
-        QString letters = match.captured(2); // "mm"
+        digits = match.captured(1); // "1234"
+        letters = match.captured(2); // "mm"
     }
 
-
+    this->int_brennweite = digits.toInt();
+    this->str_brennweite = letters;
 
     return cb->currentData().toInt();
 }
