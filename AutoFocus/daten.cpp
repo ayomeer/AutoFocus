@@ -26,7 +26,17 @@ void Daten::initComboBox(QComboBox *cb)
  */
 int Daten::getBrennweite(const QComboBox *cb)
 {
-    QString temp = cb->currentData().toString();
+    return cb->currentData().toInt(); // not finished!
+}
+
+/**
+ * @brief   Rueckgabe der Brennweite der ausgewählten Linse
+ * @param   Pointer zu QLineEdit leObjektweite
+ * @return  Eingabe der QLineEdit leObjektweite im String-Format
+ */
+QString Daten::getObjektweite(const QLineEdit *l)
+{
+    QString temp = l->text();
     QRegularExpression re("(\\d+) (\\w+)");
     QRegularExpressionMatch match = re.match(temp);  // "1234 mm"
 
@@ -41,15 +51,7 @@ int Daten::getBrennweite(const QComboBox *cb)
     this->int_brennweite = digits.toInt();
     this->str_brennweite = letters;
 
-    return cb->currentData().toInt();
-}
-
-/**
- * @brief   Rueckgabe der Brennweite der ausgewählten Linse
- * @param   Pointer zu QLineEdit leObjektweite
- * @return  Eingabe der QLineEdit leObjektweite im String-Format
- */
-QString Daten::getObjektweite(const QLineEdit *l)
-{
+    //TODO: correct response
+    // Wo wird l retourniert??
     return (l->text());
 }
