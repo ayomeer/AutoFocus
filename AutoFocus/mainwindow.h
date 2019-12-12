@@ -21,7 +21,7 @@ public:
 
 private slots:
     void on_pbLinseHinzufuegen_clicked();
-    void on_leObjektweite_editingFinished();
+    void on_returnPressed();
     void on_cbBrennweite_currentIndexChanged(int index);
 
 private:
@@ -31,6 +31,8 @@ private:
     Linse *lens;
     Berechnung *calc;
     //Grafik *grafic;
+
+    bool first_init;
 
 };
 #endif // MAINWINDOW_H

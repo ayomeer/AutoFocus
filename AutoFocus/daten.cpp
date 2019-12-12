@@ -26,7 +26,7 @@ void Daten::initComboBox(QComboBox *cb)
  */
 int Daten::getBrennweite(const QComboBox *cb)
 {
-    return cb->currentData().toInt(); // not finished!
+    return cb->currentData().toInt();
 }
 
 /**
@@ -36,22 +36,5 @@ int Daten::getBrennweite(const QComboBox *cb)
  */
 QString Daten::getObjektweite(const QLineEdit *l)
 {
-    QString temp = l->text();
-    QRegularExpression re("(\\d+) (\\w+)");
-    QRegularExpressionMatch match = re.match(temp);  // "1234 mm"
-
-    QString digits;
-    QString letters;
-
-    if (match.hasMatch()) {
-        digits = match.captured(1); // "1234"
-        letters = match.captured(2); // "mm"
-    }
-
-    this->int_brennweite = digits.toInt();
-    this->str_brennweite = letters;
-
-    //TODO: correct response
-    // Wo wird l retourniert??
     return (l->text());
 }
