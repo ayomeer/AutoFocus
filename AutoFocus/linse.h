@@ -7,6 +7,8 @@
 #include <QAbstractButton>
 #include <QPushButton>
 #include <qmessagebox.h>
+#include <QFile>
+#include <QTextStream>
 
 namespace Ui {
 class Linse;
@@ -21,6 +23,7 @@ public:
     ~Linse();
 
     void setComboBox(QComboBox *cb);
+    void loadDaten(QComboBox *cb);
 
 private slots:
     void on_pbSpeichern_clicked();
@@ -32,6 +35,7 @@ private:
     QComboBox *cbLinse;
 
     void fehlermeldung();
+    void addLinseTxtFile(int brennweite);
 };
 
 #endif // LINSE_H

@@ -28,8 +28,8 @@ private:
     Ui::MainWindow *ui;
 
     Daten *data;
-    Linse *lens;
     Berechnung *calc;
+    Linse *lens;
     //Grafik *grafic;
 
 };
