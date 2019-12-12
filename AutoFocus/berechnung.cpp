@@ -16,7 +16,7 @@ bool Berechnung::testEingabe(int brennweite, QString objektweite)
     QString digits;
     QString letters;
 
-    QRegularExpression re("([1-9]+)([a-z]+)"); //
+    QRegularExpression re("([1-9]+)([a-z]+)");
     QRegularExpressionMatch match = re.match(objektweite);
 
     if (match.hasMatch()) {
@@ -25,7 +25,7 @@ bool Berechnung::testEingabe(int brennweite, QString objektweite)
     }
     else
     {
-        return 1; // theoretisch Error bei no match .. aktuell 2 Fehler
+        return 1;
     }
 
     this->int_brennweite = digits.toDouble();
@@ -54,10 +54,6 @@ bool Berechnung::testEingabe(int brennweite, QString objektweite)
         return 1;
     }
 
-    //cout << letters.toStdString()<< endl; //testAusgabe
-
-    //TODO: correct response
-
     return 0;
 }
 
@@ -80,33 +76,10 @@ void Berechnung::fehlermeldung()
  */
 void Berechnung::calcBildweite(QLineEdit *l, const int brennweite, const QString objektweite)
 {
-    //float einheitenfaktor = 0;
     double bildweite;
-
-    /*
-     switch (str2int(str))
-     {
-     case "mm":
-      einheitenfaktor=1;
-      break;
-     case "cm":
-      einheitenfaktor=10;
-      break;
-     case "dm":
-      einheitenfaktor=100;
-      break;
-     case "m":
-      ©
-      break;
-     default:
-      this->fehlermeldung();
-      */
     double double_brennweite = double(brennweite);
 
+    bildweite = 1/(1/double_brennweite)-(1/(this->int_brennweite*this->einheitenfaktor));
 
-     bildweite = 1/(1/double_brennweite)-(1/(this->int_brennweite*this->einheitenfaktor));
-             //((-brennweite*this->einheitenfaktor) * int_objektweite / (int_objektweite - brennweite*this->einheitenfaktor));
-
-     l->setText(QString::number(bildweite) + " mm ");
-
+    l->setText(QString::number(bildweite) + " mm ");
 }

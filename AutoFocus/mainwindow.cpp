@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     data->initComboBox(ui->cbBrennweite);
     lens->loadDaten(ui->cbBrennweite);
 
-    connect(ui->cbBrennweite, &QLineEdit::returnPressed,
+    connect(ui->leObjektweite, &QLineEdit::returnPressed,
             this, &MainWindow::on_returnPressed);
 }
 
@@ -38,10 +38,6 @@ MainWindow::~MainWindow()
  */
 void MainWindow::on_pbLinseHinzufuegen_clicked()
 {
-    // Example
-    ui->leBildweite->setText("+");
-    //
-
     Linse l;
     l.setComboBox(ui->cbBrennweite);
     l.setModal(true);
@@ -59,10 +55,6 @@ void MainWindow::on_returnPressed()
         ui->leBildweite->setText("");
     }
     else {
-        // Example
-        ui->leBildweite->setText("1");
-        //
-
         bool fehler = 0;
 
         fehler = calc->testEingabe(data->getBrennweite(ui->cbBrennweite), data->getObjektweite(ui->leObjektweite));
