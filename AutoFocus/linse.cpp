@@ -1,8 +1,6 @@
 #include "linse.h"
 #include "ui_linse.h"
 
-#include <QDebug>
-
 Linse::Linse(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Linse)
