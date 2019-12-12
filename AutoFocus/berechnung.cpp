@@ -25,10 +25,7 @@ bool Berechnung::testEingabe(int brennweite, QString objektweite)
  */
 void Berechnung::fehlermeldung()
 {
-	QMessageBox msgBox;
-	msgBox.setText("Bitte eine positive Zahl eingeben");
-	msgBox.exec();
-	
+
 }
 
 /**
@@ -38,8 +35,5 @@ void Berechnung::fehlermeldung()
  */
 void Berechnung::calcBildweite(QLineEdit *l, const int brennweite, const QString objektweite)
 {
-	int bildweite;
-	bildweite = ((-brennweite) * objektweite / (objektweite - brennweite));
-	l->setText(QString::number(bildweite));
-	
+
 }

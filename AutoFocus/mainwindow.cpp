@@ -15,6 +15,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     data->initComboBox(ui->cbBrennweite);
     lens->loadDaten(ui->cbBrennweite);
+
+    connect(ui->cbBrennweite, &QLineEdit::returnPressed,
+            this, &MainWindow::on_returnPressed);
 }
 
 MainWindow::~MainWindow()
@@ -50,12 +53,10 @@ void MainWindow::on_pbLinseHinzufuegen_clicked()
  * @param   -
  * @return  -
  */
-void MainWindow::on_leObjektweite_editingFinished()
+void MainWindow::on_returnPressed()
 {
     if (data->getBrennweite(ui->cbBrennweite) == 0 || data->getObjektweite(ui->leObjektweite) == "") {
         ui->leBildweite->setText("");
-        calc->fehlermeldung();
-
     }
     else {
         // Example
@@ -86,5 +87,10 @@ void MainWindow::on_leObjektweite_editingFinished()
 void MainWindow::on_cbBrennweite_currentIndexChanged(int index)
 {
     // Ruft direkt die Event-Methode on_leObjektweite_editingFinished() auf
-    MainWindow::on_leObjektweite_editingFinished();
+    if (!this->first_init) {
+        this->first_init = 1;
+    }
+    else {
+        MainWindow::on_returnPressed();
+    }
 }
