@@ -9,19 +9,20 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Objekte erzeugen
     data = new Daten(parent);
-    lens = new Linse(parent);
     calc = new Berechnung(parent);
+    lens = new Linse(parent);
     //grafic = new Grafik(parent);
 
     data->initComboBox(ui->cbBrennweite);
+    lens->loadDaten(ui->cbBrennweite);
 }
 
 MainWindow::~MainWindow()
 {
     // Objekte loeschen
     delete data;
-    delete lens;
     delete calc;
+    delete lens;
     // delete grafic;
 
     delete ui;
@@ -29,7 +30,6 @@ MainWindow::~MainWindow()
 
 /**
  * @brief   Bereitet das Hinzufügen einer neuen Linse vor
- * @todo    addLensWindow öffnen für die Erfassung der neuen Linse
  * @param   -
  * @return  -
  */
@@ -39,13 +39,14 @@ void MainWindow::on_pbLinseHinzufuegen_clicked()
     ui->leBildweite->setText("+");
     //
 
-    lens->addLinse(ui->cbBrennweite);
+    Linse l;
+    l.setComboBox(ui->cbBrennweite);
+    l.setModal(true);
+    l.exec();
 }
 
 /**
  * @brief   Berechnung der Bildweite mit Überprüfung der Eingabewerte
- * @todo    Überprüfung der Eingabewerte (Linse - Linse ausgewählt (siehe getBrennweite), Objektweite - positive Zahl (QString))
- *          Ausgabe der Bildweite und der Visualisierung
  * @param   -
  * @return  -
  */
@@ -65,7 +66,7 @@ void MainWindow::on_leObjektweite_editingFinished()
 
         fehler = calc->testEingabe(data->getBrennweite(ui->cbBrennweite), data->getObjektweite(ui->leObjektweite));
 
-        if(fehler) {
+        if (fehler) {
             //Fehlermeldung mit QMessageBox
             calc->fehlermeldung();
         }

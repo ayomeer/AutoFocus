@@ -4,8 +4,8 @@
 #include <QMainWindow>
 
 #include "daten.h"
-#include "linse.h"
 #include "berechnung.h"
+#include "linse.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -28,8 +28,8 @@ private:
     Ui::MainWindow *ui;
 
     Daten *data;
-    Linse *lens;
     Berechnung *calc;
+    Linse *lens;
     //Grafik *grafic;
 
 };
