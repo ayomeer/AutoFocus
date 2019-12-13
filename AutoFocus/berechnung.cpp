@@ -16,7 +16,7 @@ bool Berechnung::testEingabe(int brennweite, QString objektweite)
     QString digits;
     QString letters;
 
-    QRegularExpression re("([1-9]+)([a-z]+)"); // Regexmuster: ZahlEinheit
+    QRegularExpression re("([0-9]+)([a-z]+)"); // Regexmuster: ZahlEinheit
     QRegularExpressionMatch match = re.match(objektweite);
 
     if (match.hasMatch()) {
