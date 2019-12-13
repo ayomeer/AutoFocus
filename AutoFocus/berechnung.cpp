@@ -7,9 +7,9 @@ Berechnung::Berechnung(QObject *parent) : QObject(parent)
 
 /**
  * @brief   Ueberpruefung der Eingabeparameter
- * @param   TODO
+ * @param   Objektweite Input-Feld der Distanz zwischen Linse und Objekt
  * @return  0: kein Fehler
- *          1: Fehler
+ *          1: Fehler (falsche Einheit, unpassender String nach Regex ZahlLetters)
  */
 bool Berechnung::testEingabe(int brennweite, QString objektweite)
 {
@@ -58,7 +58,7 @@ bool Berechnung::testEingabe(int brennweite, QString objektweite)
 }
 
 /**
- * @brief   Fehlermeldung mit QMessageBox
+ * @brief   Fehlermeldung mit QMessageBox bei falscher Eingabe
  * @param   -
  * @return  -
  */
@@ -70,7 +70,9 @@ void Berechnung::fehlermeldung()
 }
 
 /**
- * @brief   Berechnung und Anzeige der Bildweite
+ * @brief   Berechnung und Anzeige der Bildweite nach Basis Formel: 1/f = 1/g + 1/g
+ *          f = Brennweite, g = Gegenstandsweite, b = Bildweite
+ *          verwendet Formel aufgelöst nach Bildweite
  * @param   TODO
  * @return  -
  */
