@@ -17,7 +17,7 @@ class Berechnung : public QObject
 public:
     explicit Berechnung(QObject *parent = nullptr);
 
-    bool testEingabe(int brennweite, QString objektweite);
+    bool testEingabe( int brennweite, QString objektweite );
     void fehlermeldung();
     void calcBildweite(QLineEdit *l, const int brennweite, const QString objektweite);
 
