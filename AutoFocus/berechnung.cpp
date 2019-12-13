@@ -7,9 +7,9 @@ Berechnung::Berechnung(QObject *parent) : QObject(parent)
 
 /**
  * @brief   Ueberpruefung der Eingabeparameter
- * @param   TODO
+ * @param   Objektweite Input-Feld der Distanz zwischen Linse und Objekt
  * @return  0: kein Fehler
- *          1: Fehler
+ *          1: Fehler (falsche Einheit, unpassender String nach Regex ZahlLetters)
  */
 bool Berechnung::testEingabe(int brennweite, QString objektweite)
 {
@@ -62,7 +62,7 @@ bool Berechnung::testEingabe(int brennweite, QString objektweite)
 }
 
 /**
- * @brief   Fehlermeldung mit QMessageBox
+ * @brief   Fehlermeldung mit QMessageBox bei falscher Eingabe
  * @param   -
  * @return  -
  */
@@ -74,39 +74,18 @@ void Berechnung::fehlermeldung()
 }
 
 /**
- * @brief   Berechnung und Anzeige der Bildweite
+ * @brief   Berechnung und Anzeige der Bildweite nach Basis Formel: 1/f = 1/g + 1/g
+ *          f = Brennweite, g = Gegenstandsweite, b = Bildweite
+ *          verwendet Formel aufgelöst nach Bildweite
  * @param   TODO
  * @return  -
  */
 void Berechnung::calcBildweite(QLineEdit *l, const int brennweite, const QString objektweite)
 {
-    //float einheitenfaktor = 0;
     double bildweite;
-
-    /*
-     switch (str2int(str))
-     {
-     case "mm":
-      einheitenfaktor=1;
-      break;
-     case "cm":
-      einheitenfaktor=10;
-      break;
-     case "dm":
-      einheitenfaktor=100;
-      break;
-     case "m":
-      ©
-      break;
-     default:
-      this->fehlermeldung();
-      */
     double double_brennweite = double(brennweite);
 
+    bildweite = 1/(1/double_brennweite)-(1/(this->int_brennweite*this->einheitenfaktor));
 
-     bildweite = 1/(1/double_brennweite)-(1/(this->int_brennweite*this->einheitenfaktor));
-             //((-brennweite*this->einheitenfaktor) * int_objektweite / (int_objektweite - brennweite*this->einheitenfaktor));
-
-     l->setText(QString::number(bildweite) + " mm ");
-
+    l->setText(QString::number(bildweite) + " mm ");
 }
