@@ -16,11 +16,11 @@ bool Berechnung::testEingabe(int brennweite, QString objektweite)
     QString digits;
     QString letters;
 
-    QRegularExpression re("([1-9]+)([a-z]+)");
+    QRegularExpression re("([0-9]+)([a-z]+)"); // Regexmuster: ZahlEinheit
     QRegularExpressionMatch match = re.match(objektweite);
 
     if (match.hasMatch()) {
-        digits = match.captured(1); // "1234"
+        digits = match.captured(1);  // "1234"
         letters = match.captured(2); // "mm"
     }
     else
@@ -54,6 +54,10 @@ bool Berechnung::testEingabe(int brennweite, QString objektweite)
         return 1;
     }
 
+    //cout << letters.toStdString()<< endl; //testAusgabe
+
+    //TODO: correct response
+
     return 0;
 }
 
@@ -73,8 +77,8 @@ void Berechnung::fehlermeldung()
  * @brief   Berechnung und Anzeige der Bildweite nach Basis Formel: 1/f = 1/g + 1/g
  *          f = Brennweite, g = Gegenstandsweite, b = Bildweite
  *          verwendet Formel aufgelöst nach Bildweite
- * @param   TODO
- * @return  -
+ * @param   QLineEdit *l, const int brennweite, const QString objektweite
+ * @return  double bildweite
  */
 void Berechnung::calcBildweite(QLineEdit *l, const int brennweite, const QString objektweite)
 {
