@@ -29,9 +29,8 @@ bool Berechnung::testEingabe(int brennweite, QString objektweite)
     }
 
     this->int_brennweite = digits.toDouble();
-    this->str_brennweite = letters;
 
-    string str = this->str_brennweite.toStdString();
+    string str = letters.toStdString();
 
     if (!str.compare("mm"))
     {

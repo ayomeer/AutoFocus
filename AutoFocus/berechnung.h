@@ -23,7 +23,6 @@ public:
 
 private:
     volatile double int_brennweite;
-    QString str_brennweite;
     volatile double einheitenfaktor;
 };
 
