@@ -1,6 +1,11 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+/**
+ * @brief   Konstruktor - erstellt ein Objekt
+ * @param   QWidget *parent - aktuelle Anwendung
+ * @return  -
+ */
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -20,6 +25,13 @@ MainWindow::MainWindow(QWidget *parent)
             this, &MainWindow::on_returnPressed);
 }
 
+/**
+ * @brief   Destruktor - zerstoert eigenes Objekt
+ *          und alle benoetigten Objekte für die Methoden,
+ *          welche eine Veraenderung am GUI ausloesen
+ * @param   -
+ * @return  -
+ */
 MainWindow::~MainWindow()
 {
     // Objekte loeschen

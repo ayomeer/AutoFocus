@@ -1,6 +1,11 @@
 #include "linse.h"
 #include "ui_linse.h"
 
+/**
+ * @brief   Konstruktor - erstellt ein Objekt
+ * @param   QWidget *parent - aktuelle Anwendung
+ * @return  -
+ */
 Linse::Linse(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Linse)
@@ -8,11 +13,23 @@ Linse::Linse(QWidget *parent) :
     ui->setupUi(this);
 }
 
+/**
+ * @brief   Destruktor - zerstoert eigenes Objekt
+ * @param   -
+ * @return  -
+ */
 Linse::~Linse()
 {
     delete ui;
 }
 
+/**
+ * @brief   Definiert die ComboBox, welche für die Speicherung
+ *          der neuen Linsen benötigt wird
+ * @param   QComboBox *cb - Addresse der benötigten ComboBox
+ *          für die Methoden
+ * @return  -
+ */
 void Linse::setComboBox(QComboBox *cb)
 {
     cbLinse = cb;

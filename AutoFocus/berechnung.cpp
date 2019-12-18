@@ -1,5 +1,10 @@
 #include "berechnung.h"
 
+/**
+ * @brief   Konstruktor - erstellt ein Objekt
+ * @param   QWidget *parent - aktuelle Anwendung
+ * @return  -
+ */
 Berechnung::Berechnung(QObject *parent) : QObject(parent)
 {
 
@@ -16,7 +21,7 @@ bool Berechnung::testEingabe(int brennweite, QString objektweite)
     QString digits;
     QString letters;
 
-    QRegularExpression re("([1-9]+)([a-z]+)");
+    QRegularExpression re("([0-9]+)([a-z]+)");
     QRegularExpressionMatch match = re.match(objektweite);
 
     if (match.hasMatch()) {
