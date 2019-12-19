@@ -1,10 +1,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "grafik.h"
 
-#include <QPainter>
-#include <QPaintEvent>
-#include <QMessageBox>
-
+/**
+ * @brief   Konstruktor - erstellt ein Objekt
+ * @param   QWidget *parent - aktuelle Anwendung
+ * @return  -
+ */
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -13,83 +15,69 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Objekte erzeugen
     data = new Daten(parent);
-    lens = new Linse(parent);
     calc = new Berechnung(parent);
-    //grafic = new Grafik(parent);
+    lens = new Linse(parent);
 
     data->initComboBox(ui->cbBrennweite);
+    lens->loadDaten(ui->cbBrennweite);
+
+    connect(ui->leObjektweite, &QLineEdit::returnPressed,
+            this, &MainWindow::on_returnPressed);
 }
 
+/**
+ * @brief   Destruktor - zerstoert eigenes Objekt
+ *          und alle benoetigten Objekte für die Methoden,
+ *          welche eine Veraenderung am GUI ausloesen
+ * @param   -
+ * @return  -
+ */
 MainWindow::~MainWindow()
 {
     // Objekte loeschen
     delete data;
-    delete lens;
     delete calc;
-    // delete grafic;
+    delete lens;
 
     delete ui;
 }
 
 /**
  * @brief   Bereitet das Hinzufügen einer neuen Linse vor
- * @todo    addLensWindow öffnen für die Erfassung der neuen Linse
  * @param   -
  * @return  -
  */
 void MainWindow::on_pbLinseHinzufuegen_clicked()
 {
-    // Example
-    ui->leBildweite->setText("+");
-    //
-
-    lens->addLinse(ui->cbBrennweite);
+    Linse l;
+    l.setComboBox(ui->cbBrennweite);
+    l.setModal(true);
+    l.exec();
 }
 
 /**
  * @brief   Berechnung der Bildweite mit Überprüfung der Eingabewerte
- * @todo    Überprüfung der Eingabewerte (Linse - Linse ausgewählt (siehe getBrennweite), Objektweite - positive Zahl (QString))
- *          Ausgabe der Bildweite und der Visualisierung
  * @param   -
  * @return  -
  */
-void MainWindow::on_leObjektweite_editingFinished()
+void MainWindow::on_returnPressed()
 {
-    // ToDo: Set up QPainter Object and use it in widgets render method: ui->wgtRenderArea.render(QPainter* painter)
-    QPainter painter(ui->wgtRenderArea);
-    painter.setPen(Qt::blue);
-    painter.setFont(QFont("Arial", 30));
-    painter.drawText(rect(), Qt::AlignCenter, "Hello?");
-    painter.end();
-
-
-    QPainter *p = &painter;
-
-    ui->wgtRenderArea->render(p);
-
-    //Something seems wrong with this v
     if (data->getBrennweite(ui->cbBrennweite) == 0 || data->getObjektweite(ui->leObjektweite) == "") {
         ui->leBildweite->setText("");
-        calc->fehlermeldung();
-
     }
     else {
-        // Example
-        ui->leBildweite->setText("1");
-        //
-
         bool fehler = 0;
 
         fehler = calc->testEingabe(data->getBrennweite(ui->cbBrennweite), data->getObjektweite(ui->leObjektweite));
 
-        if(fehler) {
+        if (fehler) {
             //Fehlermeldung mit QMessageBox
             calc->fehlermeldung();
         }
         else {
             // Berechnung und Anzeige, da alle Eingabeparameter gültig sind
             calc->calcBildweite(ui->leBildweite, data->getBrennweite(ui->cbBrennweite), data->getObjektweite(ui->leObjektweite));
-            //grafic->updateGrafik(ui->openGLGrafik, data->getBrennweite(ui->cbBrennweite), data->getObjektweite(ui->leObjektweite));
+            ui->wgtRenderArea->redraw(Grafik::Bildweite);
         }
     }
 }
@@ -102,6 +90,11 @@ void MainWindow::on_leObjektweite_editingFinished()
 void MainWindow::on_cbBrennweite_currentIndexChanged(int index)
 {
     // Ruft direkt die Event-Methode on_leObjektweite_editingFinished() auf
-	// Kommentarversuch
-    MainWindow::on_leObjektweite_editingFinished();
+    if (!this->first_init) {
+        this->first_init = 1;
+    }
+    else {
+        MainWindow::on_returnPressed();
+    }
 }
+

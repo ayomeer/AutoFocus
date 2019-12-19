@@ -1,5 +1,10 @@
 #include "daten.h"
 
+/**
+ * @brief   Konstruktor - erstellt ein Objekt
+ * @param   QWidget *parent - aktuelle Anwendung
+ * @return  -
+ */
 Daten::Daten(QObject *parent) : QObject(parent)
 {
 

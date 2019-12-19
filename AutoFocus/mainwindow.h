@@ -4,8 +4,9 @@
 #include <QMainWindow>
 
 #include "daten.h"
-#include "linse.h"
 #include "berechnung.h"
+#include "linse.h"
+#include "grafik.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -21,16 +22,17 @@ public:
 
 private slots:
     void on_pbLinseHinzufuegen_clicked();
-    void on_leObjektweite_editingFinished();
+    void on_returnPressed();
     void on_cbBrennweite_currentIndexChanged(int index);
 
 private:
     Ui::MainWindow *ui;
 
     Daten *data;
-    Linse *lens;
     Berechnung *calc;
+    Linse *lens;
     //Grafik *grafic;
 
+    bool first_init;
 };
 #endif // MAINWINDOW_H
