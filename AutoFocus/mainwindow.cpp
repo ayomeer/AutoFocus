@@ -76,13 +76,8 @@ void MainWindow::on_returnPressed()
         }
         else {
             // Berechnung und Anzeige, da alle Eingabeparameter gültig sind
-<<<<<<< HEAD
             calc->calcBildweite(ui->leBildweite, data->getBrennweite(ui->cbBrennweite));
-            //grafic->updateGrafik(ui->openGLGrafik, data->getBrennweite(ui->cbBrennweite), data->getObjektweite(ui->leObjektweite));
-=======
-            calc->calcBildweite(ui->leBildweite, data->getBrennweite(ui->cbBrennweite), data->getObjektweite(ui->leObjektweite));
             ui->wgtRenderArea->redraw(Grafik::Bildweite);
->>>>>>> origin/Andreas_Dev_Branch
         }
     }
 }

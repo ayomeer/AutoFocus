@@ -21,11 +21,7 @@ bool Berechnung::testEingabe(QString objektweite)
     QString digits;
     QString letters;
 
-<<<<<<< HEAD
-    QRegularExpression re("([0-9]+)([a-z]+)");
-=======
     QRegularExpression re("([0-9]+)([a-z]+)"); // Regexmuster: ZahlEinheit
->>>>>>> f26070c7fb30c4ea3b9c3029623040f812b19ce5
     QRegularExpressionMatch match = re.match(objektweite);
 
     if (match.hasMatch()) {
