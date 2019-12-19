@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     berechnung.cpp \
     daten.cpp \
+    grafik.cpp \
     linse.cpp \
     main.cpp \
     mainwindow.cpp
@@ -25,6 +26,7 @@ SOURCES += \
 HEADERS += \
     berechnung.h \
     daten.h \
+    grafik.h \
     linse.h \
     mainwindow.h
 

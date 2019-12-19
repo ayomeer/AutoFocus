@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>700</width>
-    <height>420</height>
+    <height>476</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
       <x>0</x>
       <y>0</y>
       <width>701</width>
-      <height>400</height>
+      <height>431</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0">
@@ -219,13 +219,13 @@
          <bool>true</bool>
         </property>
        </widget>
-       <widget class="QOpenGLWidget" name="openGLGrafik">
+       <widget class="grafik" name="wgtRenderArea" native="true">
         <property name="geometry">
          <rect>
-          <x>250</x>
+          <x>290</x>
           <y>40</y>
-          <width>390</width>
-          <height>150</height>
+          <width>351</width>
+          <height>151</height>
          </rect>
         </property>
        </widget>
@@ -240,12 +240,20 @@
      <x>0</x>
      <y>0</y>
      <width>700</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>grafik</class>
+   <extends>QWidget</extends>
+   <header>grafik.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

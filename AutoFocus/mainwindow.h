@@ -6,6 +6,7 @@
 #include "daten.h"
 #include "berechnung.h"
 #include "linse.h"
+#include "grafik.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

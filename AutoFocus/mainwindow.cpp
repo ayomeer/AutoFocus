@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "grafik.h"
 
 /**
  * @brief   Konstruktor - erstellt ein Objekt
@@ -16,7 +17,6 @@ MainWindow::MainWindow(QWidget *parent)
     data = new Daten(parent);
     calc = new Berechnung(parent);
     lens = new Linse(parent);
-    //grafic = new Grafik(parent);
 
     data->initComboBox(ui->cbBrennweite);
     lens->loadDaten(ui->cbBrennweite);
@@ -38,7 +38,6 @@ MainWindow::~MainWindow()
     delete data;
     delete calc;
     delete lens;
-    // delete grafic;
 
     delete ui;
 }
@@ -77,8 +76,13 @@ void MainWindow::on_returnPressed()
         }
         else {
             // Berechnung und Anzeige, da alle Eingabeparameter gültig sind
+<<<<<<< HEAD
             calc->calcBildweite(ui->leBildweite, data->getBrennweite(ui->cbBrennweite));
             //grafic->updateGrafik(ui->openGLGrafik, data->getBrennweite(ui->cbBrennweite), data->getObjektweite(ui->leObjektweite));
+=======
+            calc->calcBildweite(ui->leBildweite, data->getBrennweite(ui->cbBrennweite), data->getObjektweite(ui->leObjektweite));
+            ui->wgtRenderArea->redraw(Grafik::Bildweite);
+>>>>>>> origin/Andreas_Dev_Branch
         }
     }
 }
@@ -98,3 +102,4 @@ void MainWindow::on_cbBrennweite_currentIndexChanged(int index)
         MainWindow::on_returnPressed();
     }
 }
+
