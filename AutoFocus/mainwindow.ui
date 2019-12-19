@@ -219,7 +219,7 @@
          <bool>true</bool>
         </property>
        </widget>
-       <widget class="grafik" name="wgtRenderArea" native="true">
+       <widget class="Grafik" name="wgtRenderArea" native="true">
         <property name="geometry">
          <rect>
           <x>290</x>
@@ -240,7 +240,7 @@
      <x>0</x>
      <y>0</y>
      <width>700</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
@@ -248,7 +248,7 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>grafik</class>
+   <class>Grafik</class>
    <extends>QWidget</extends>
    <header>grafik.h</header>
    <container>1</container>
