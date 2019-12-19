@@ -11,7 +11,7 @@ Berechnung::Berechnung(QObject *parent) : QObject(parent)
  * @return  0: kein Fehler
  *          1: Fehler (falsche Einheit, unpassender String nach Regex ZahlLetters)
  */
-bool Berechnung::testEingabe(QString objektweite)  // 1. int brennweite,
+bool Berechnung::testEingabe(QString objektweite)
 {
     QString digits;
     QString letters;
@@ -74,7 +74,7 @@ void Berechnung::fehlermeldung()
  * @param   QLineEdit *l, const int brennweite, const QString objektweite
  * @return  double bildweite
  */
-void Berechnung::calcBildweite(QLineEdit *l, const int brennweite) //3. const QString objektweite
+void Berechnung::calcBildweite(QLineEdit *l, const int brennweite)
 {
     double bildweite;
     double double_brennweite = double(brennweite);
