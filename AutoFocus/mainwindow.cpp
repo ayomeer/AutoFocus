@@ -69,7 +69,7 @@ void MainWindow::on_returnPressed()
     else {
         bool fehler = 0;
 
-        fehler = calc->testEingabe(data->getBrennweite(ui->cbBrennweite), data->getObjektweite(ui->leObjektweite));
+        fehler = calc->testEingabe(data->getObjektweite(ui->leObjektweite));
 
         if (fehler) {
             //Fehlermeldung mit QMessageBox
@@ -77,7 +77,7 @@ void MainWindow::on_returnPressed()
         }
         else {
             // Berechnung und Anzeige, da alle Eingabeparameter gültig sind
-            calc->calcBildweite(ui->leBildweite, data->getBrennweite(ui->cbBrennweite), data->getObjektweite(ui->leObjektweite));
+            calc->calcBildweite(ui->leBildweite, data->getBrennweite(ui->cbBrennweite));
             //grafic->updateGrafik(ui->openGLGrafik, data->getBrennweite(ui->cbBrennweite), data->getObjektweite(ui->leObjektweite));
         }
     }
