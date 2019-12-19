@@ -1,0 +1,14 @@
+diff a/AutoFocus/AutoFocus.pro.user b/AutoFocus/AutoFocus.pro.user	(rejected hunks)
+@@ -1,10 +1,10 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE QtCreatorProject>
+-<!-- Written by QtCreator 4.10.2, 2019-12-12T12:43:12. -->
++<!-- Written by QtCreator 4.7.0, 2019-12-19T13:15:20. -->
+ <qtcreator>
+  <data>
+   <variable>EnvironmentId</variable>
+-  <value type="QByteArray">{e2f85414-7e26-4b92-91e1-22920fd5505c}</value>
++  <value type="QByteArray">{7f86a48c-2e3d-44fc-a957-4f2472aeae69}</value>
+  </data>
+  <data>
+   <variable>ProjectExplorer.Project.ActiveTarget</variable>
