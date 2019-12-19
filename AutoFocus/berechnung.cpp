@@ -11,7 +11,7 @@ Berechnung::Berechnung(QObject *parent) : QObject(parent)
  * @return  0: kein Fehler
  *          1: Fehler (falsche Einheit, unpassender String nach Regex ZahlLetters)
  */
-bool Berechnung::testEingabe(int brennweite, QString objektweite)
+bool Berechnung::testEingabe(QString objektweite)
 {
     QString digits;
     QString letters;
@@ -20,7 +20,7 @@ bool Berechnung::testEingabe(int brennweite, QString objektweite)
     QRegularExpressionMatch match = re.match(objektweite);
 
     if (match.hasMatch()) {
-        digits = match.captured(1);  // "1234"
+        digits = match.captured(1);  // "1234" ganze Zahl
         letters = match.captured(2); // "mm"
     }
     else
@@ -28,10 +28,9 @@ bool Berechnung::testEingabe(int brennweite, QString objektweite)
         return 1;
     }
 
-    this->int_brennweite = digits.toDouble();
-    this->str_brennweite = letters;
+    this->double_brennweite = digits.toDouble();
 
-    string str = this->str_brennweite.toStdString();
+    string str = letters.toStdString();
 
     if (!str.compare("mm"))
     {
@@ -80,12 +79,12 @@ void Berechnung::fehlermeldung()
  * @param   QLineEdit *l, const int brennweite, const QString objektweite
  * @return  double bildweite
  */
-void Berechnung::calcBildweite(QLineEdit *l, const int brennweite, const QString objektweite)
+void Berechnung::calcBildweite(QLineEdit *l, const int brennweite)
 {
     double bildweite;
     double double_brennweite = double(brennweite);
 
-    bildweite = 1/(1/double_brennweite)-(1/(this->int_brennweite*this->einheitenfaktor));
+    bildweite = 1/(1/double_brennweite)-(1/(this->double_brennweite*this->einheitenfaktor));
 
     l->setText(QString::number(bildweite) + " mm ");
 }
