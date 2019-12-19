@@ -20,7 +20,7 @@ bool Berechnung::testEingabe(QString objektweite)
     QRegularExpressionMatch match = re.match(objektweite);
 
     if (match.hasMatch()) {
-        digits = match.captured(1);  // "1234"
+        digits = match.captured(1);  // "1234" ganze Zahl
         letters = match.captured(2); // "mm"
     }
     else
