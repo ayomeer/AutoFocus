@@ -22,7 +22,7 @@ protected:
     void paintEvent(QPaintEvent *event) override;
 
 private:
-    HighlightTarget highlighted;
+    HighlightTarget highlighted; // Not currently used
     QPen pen;
     QBrush brush;
 };

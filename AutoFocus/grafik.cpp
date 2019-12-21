@@ -38,7 +38,7 @@ void Grafik::paintEvent(QPaintEvent *)
 {
     //Create lense path using rectangle and quadratic bezier curves
 
-    enum {LenseHeight = 100, LenseWidth = 11, CurveDistance = 25};
+    enum LenseProperties {LenseHeight = 100, LenseWidth = 11, CurveDistance = 25};
 
     QRect lenseRect(QPoint(-LenseWidth/2,-LenseHeight/2), QSize(LenseWidth, LenseHeight)); //Rectangle holding corner points of lense
     QPoint ctrlR(CurveDistance, 0); //Right bezier control point
@@ -60,7 +60,8 @@ void Grafik::paintEvent(QPaintEvent *)
 
     // paint lense
     QPainter painter(this);
-    painter.setRenderHint(QPainter::Antialiasing);
+    painter.setRenderHint(QPainter::Antialiasing, true);
+    painter.setRenderHint(QPainter::TextAntialiasing, true);
     painter.translate(200,75); // position center of coordinate system where we want center of lense
     painter.setBrush(brush);
     painter.drawPath(lensePath);
@@ -92,25 +93,44 @@ void Grafik::paintEvent(QPaintEvent *)
     QLine lenseHorizontalLine(l2_left, l2_right);
     painter.drawLine(lenseHorizontalLine);
 
-    // measurements
-    //ToDo: Integrate conditionals for highlighting based on LineEdit 'Objektweite'
+    // object and virtual image
+
+
+    bluePen.setWidth(2);
+    painter.setPen(bluePen);
+    painter.setBrush(QBrush(Qt::black, Qt::SolidPattern));
+
+    enum LineProperties {ObjHeight = -40, ImageHeight = 20};
+
+    QPoint p1(-150,0);
+    QPoint p2(80,0);
+
+    QLine objectLine(p1, QPoint(p1.x(), ObjHeight));
+    painter.drawLine(objectLine);
+
+    QLine imageLine(p2, QPoint(p2.x(), ImageHeight));
+    painter.drawLine(imageLine);
 
     QPen blackPen(Qt::SolidLine);
     blackPen.setColor(Qt::black);
-
-    QPen redPen(Qt::SolidLine);
-    redPen.setColor(Qt::red);
-
+    blackPen.setWidth(1);
     painter.setPen(blackPen);
-    if(this->highlighted == Bildweite){//temporary test for interaction with the mainwindow
-        painter.setPen(redPen);
-    }
 
+    // measurements
     QPainterPath path = horizontalMeasurement("f", QPoint(-FocalLength, 0), QPoint(0,0), 60, 5, 2);
     path.addPath(horizontalMeasurement("f", QPoint(0,0), QPoint(FocalLength, 0), 60, 5, 1));
-    path.addPath(horizontalMeasurement("b", QPoint(-150,0), QPoint(0,0), -60, -5, 2));
-    path.addPath(horizontalMeasurement("g", QPoint(0,0), QPoint(100,0), -60, -5, 1));
+    path.addPath(horizontalMeasurement("b", p1, QPoint(0,0), -60, -5, 2));
+    path.addPath(horizontalMeasurement("g", QPoint(0,0),p2, -60, -5, 1));
     painter.drawPath(path);
+
+    // light trace lines
+    QPen redPen(Qt::red);
+    painter.setPen(redPen);
+    painter.drawLine(objectLine.p2(), QPoint(0, objectLine.p2().y()));
+    painter.drawLine(QPoint(0,ObjHeight), imageLine.p2());
+    painter.drawLine(objectLine.p2(), imageLine.p2());
+    painter.drawLine(objectLine.p2(), QPoint(0, ImageHeight));
+    painter.drawLine(QPoint(0, ImageHeight), imageLine.p2());
 }
 
 /**
@@ -125,23 +145,30 @@ void Grafik::paintEvent(QPaintEvent *)
  */
 QPainterPath horizontalMeasurement(QString letter, QPoint p1, QPoint p2, int height, int arrowVertOffset, int noVert)
 {
-    enum {arrowHorOffset = 3};
+    enum {arrowHorOffset = 3}; // space between vertical bar and start of horizontal bar
 
-    QRect rectOuter(QPoint(p1.x(), -height), p2);
-    QRect rectInner(QPoint(p1.x()+arrowHorOffset, -height+arrowVertOffset),
+    QRect rectOuter(QPoint(p1.x(), -height), p2); // bounding box for vertical bars
+    QRect rectInner(QPoint(p1.x()+arrowHorOffset, -height+arrowVertOffset), // bounding box for horizontal bars
                     QPoint(p2.x()-arrowHorOffset, -height+arrowVertOffset));
 
     QPainterPath path(p1);
     // vertical lines
-    if (noVert != 1){
+    if (noVert != 1){ //skip drawing left vertical line if noVert = 1
         path.lineTo(rectOuter.topLeft());
     }
-    if (noVert != 2){
+    if (noVert != 2){ //skip drawing right vertical line if noVert = 2
         path.moveTo(rectOuter.topRight());
         path.lineTo(rectOuter.bottomRight());
     }
+    // draw horizontal bar and arrowheads
+    QPolygon arrowHeadLeft(4);
+    arrowHeadLeft << QPoint(0,0) << QPoint(5,3) << QPoint(5,-3) << QPoint(0,0);
+    QPolygon arrowHeadRight(4);
+    arrowHeadRight << QPoint(0,0) << QPoint(-5,3) << QPoint(-5,-3) << QPoint(0,0);
     path.moveTo(rectInner.topLeft());
+    path.addPolygon(arrowHeadLeft.translated(path.currentPosition().x(), path.currentPosition().y()));
     path.lineTo(rectInner.topRight());
+    path.addPolygon(arrowHeadRight.translated(path.currentPosition().x(), path.currentPosition().y()));
 
     QFont arial("Arial", 8);
     QPoint textPos = rectInner.topLeft() + QPoint(rectInner.width()/2, -5);
