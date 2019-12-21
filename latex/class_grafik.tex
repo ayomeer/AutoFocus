@@ -1,0 +1,96 @@
+\hypertarget{class_grafik}{}\doxysection{Grafik Class Reference}
+\label{class_grafik}\index{Grafik@{Grafik}}
+
+
+Inherits Q\+Widget.
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_grafik_a58b77ba7328a639a5651a6f4df5b99f2}\label{class_grafik_a58b77ba7328a639a5651a6f4df5b99f2}} 
+enum {\bfseries Highlight\+Target} \{ {\bfseries None}, 
+{\bfseries Bildweite}, 
+{\bfseries Objektweite}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_grafik_abc09b69e5ecf7df3c9b8cf3c2d33336d}{redraw}} (Highlight\+Target target)
+\begin{DoxyCompactList}\small\item\em Diese Slot-\/\+Methode wird aufgerufen, wenn die \mbox{\hyperlink{class_grafik}{Grafik}} neu gezeichnet werden muss da sich ihr highlight Zustand geändert hat. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_grafik_a577392318bbf4350fec50bfc76a84324}{Grafik}} (Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Konstruktor Grafik-\/\+Klasse. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_grafik_aa521247f5e17b6cd47a82bc2b3c0d250}{paint\+Event}} (Q\+Paint\+Event $\ast$event) override
+\begin{DoxyCompactList}\small\item\em Neuimplementierung der Q\+Widget Methode zum Zeichnen der \mbox{\hyperlink{class_grafik}{Grafik}}. Wird von Qt Hintergrundprozessen aufgerufen, nie direkt im Code. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_grafik_a577392318bbf4350fec50bfc76a84324}\label{class_grafik_a577392318bbf4350fec50bfc76a84324}} 
+\index{Grafik@{Grafik}!Grafik@{Grafik}}
+\index{Grafik@{Grafik}!Grafik@{Grafik}}
+\doxysubsubsection{\texorpdfstring{Grafik()}{Grafik()}}
+{\footnotesize\ttfamily Grafik\+::\+Grafik (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Konstruktor Grafik-\/\+Klasse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_grafik_aa521247f5e17b6cd47a82bc2b3c0d250}\label{class_grafik_aa521247f5e17b6cd47a82bc2b3c0d250}} 
+\index{Grafik@{Grafik}!paintEvent@{paintEvent}}
+\index{paintEvent@{paintEvent}!Grafik@{Grafik}}
+\doxysubsubsection{\texorpdfstring{paintEvent()}{paintEvent()}}
+{\footnotesize\ttfamily void Grafik\+::paint\+Event (\begin{DoxyParamCaption}\item[{Q\+Paint\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Neuimplementierung der Q\+Widget Methode zum Zeichnen der \mbox{\hyperlink{class_grafik}{Grafik}}. Wird von Qt Hintergrundprozessen aufgerufen, nie direkt im Code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_grafik_abc09b69e5ecf7df3c9b8cf3c2d33336d}\label{class_grafik_abc09b69e5ecf7df3c9b8cf3c2d33336d}} 
+\index{Grafik@{Grafik}!redraw@{redraw}}
+\index{redraw@{redraw}!Grafik@{Grafik}}
+\doxysubsubsection{\texorpdfstring{redraw}{redraw}}
+{\footnotesize\ttfamily void Grafik\+::redraw (\begin{DoxyParamCaption}\item[{Highlight\+Target}]{hl\+Target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Diese Slot-\/\+Methode wird aufgerufen, wenn die \mbox{\hyperlink{class_grafik}{Grafik}} neu gezeichnet werden muss da sich ihr highlight Zustand geändert hat. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hl\+Target} & \char`\"{}\+None\char`\"{}, \char`\"{}\+Bildweite\char`\"{}, \char`\"{}\+Objektweite\char`\"{}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Auto\+Focus/grafik.\+h\item 
+Auto\+Focus/grafik.\+cpp\end{DoxyCompactItemize}

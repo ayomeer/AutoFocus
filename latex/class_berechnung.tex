@@ -1,0 +1,101 @@
+\hypertarget{class_berechnung}{}\doxysection{Berechnung Class Reference}
+\label{class_berechnung}\index{Berechnung@{Berechnung}}
+
+
+Inherits Q\+Object.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_berechnung_ad2016bce3171014470305410e972603f}{Berechnung}} (Q\+Object $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Konstruktor -\/ erstellt ein Objekt. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_berechnung_ad646252b9faa3d3b37e047dd245ff5d3}{test\+Eingabe}} (Q\+String objektweite)
+\begin{DoxyCompactList}\small\item\em Ueberpruefung der Eingabeparameter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_berechnung_a2377023543fe8dcb4fd8f6828cd45a97}{fehlermeldung}} ()
+\begin{DoxyCompactList}\small\item\em Fehlermeldung mit Q\+Message\+Box bei falscher Eingabe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_berechnung_a5c1ab52f3c9f2c00803889ec9c2cb8d7}{calc\+Bildweite}} (Q\+Line\+Edit $\ast$l, const int brennweite)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_berechnung}{Berechnung}} und Anzeige der Bildweite nach Basis Formel\+: 1/f = 1/g + 1/g f = Brennweite, g = Gegenstandsweite, b = Bildweite verwendet Formel aufgelöst nach Bildweite. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_berechnung_ad2016bce3171014470305410e972603f}\label{class_berechnung_ad2016bce3171014470305410e972603f}} 
+\index{Berechnung@{Berechnung}!Berechnung@{Berechnung}}
+\index{Berechnung@{Berechnung}!Berechnung@{Berechnung}}
+\doxysubsubsection{\texorpdfstring{Berechnung()}{Berechnung()}}
+{\footnotesize\ttfamily Berechnung\+::\+Berechnung (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Konstruktor -\/ erstellt ein Objekt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Q\+Widget} & $\ast$parent -\/ aktuelle Anwendung \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_berechnung_a5c1ab52f3c9f2c00803889ec9c2cb8d7}\label{class_berechnung_a5c1ab52f3c9f2c00803889ec9c2cb8d7}} 
+\index{Berechnung@{Berechnung}!calcBildweite@{calcBildweite}}
+\index{calcBildweite@{calcBildweite}!Berechnung@{Berechnung}}
+\doxysubsubsection{\texorpdfstring{calcBildweite()}{calcBildweite()}}
+{\footnotesize\ttfamily void Berechnung\+::calc\+Bildweite (\begin{DoxyParamCaption}\item[{Q\+Line\+Edit $\ast$}]{l,  }\item[{const int}]{brennweite }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_berechnung}{Berechnung}} und Anzeige der Bildweite nach Basis Formel\+: 1/f = 1/g + 1/g f = Brennweite, g = Gegenstandsweite, b = Bildweite verwendet Formel aufgelöst nach Bildweite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Q\+Line\+Edit} & $\ast$l, const int brennweite, const Q\+String objektweite \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double bildweite 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_berechnung_a2377023543fe8dcb4fd8f6828cd45a97}\label{class_berechnung_a2377023543fe8dcb4fd8f6828cd45a97}} 
+\index{Berechnung@{Berechnung}!fehlermeldung@{fehlermeldung}}
+\index{fehlermeldung@{fehlermeldung}!Berechnung@{Berechnung}}
+\doxysubsubsection{\texorpdfstring{fehlermeldung()}{fehlermeldung()}}
+{\footnotesize\ttfamily void Berechnung\+::fehlermeldung (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Fehlermeldung mit Q\+Message\+Box bei falscher Eingabe. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_berechnung_ad646252b9faa3d3b37e047dd245ff5d3}\label{class_berechnung_ad646252b9faa3d3b37e047dd245ff5d3}} 
+\index{Berechnung@{Berechnung}!testEingabe@{testEingabe}}
+\index{testEingabe@{testEingabe}!Berechnung@{Berechnung}}
+\doxysubsubsection{\texorpdfstring{testEingabe()}{testEingabe()}}
+{\footnotesize\ttfamily bool Berechnung\+::test\+Eingabe (\begin{DoxyParamCaption}\item[{Q\+String}]{objektweite }\end{DoxyParamCaption})}
+
+
+
+Ueberpruefung der Eingabeparameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Objektweite} & Input-\/\+Feld der Distanz zwischen \mbox{\hyperlink{class_linse}{Linse}} und Objekt \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0\+: kein Fehler 1\+: Fehler (falsche Einheit, unpassender String nach Regex Zahl\+Letters) 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Auto\+Focus/berechnung.\+h\item 
+Auto\+Focus/berechnung.\+cpp\end{DoxyCompactItemize}

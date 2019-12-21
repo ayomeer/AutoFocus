@@ -1,0 +1,101 @@
+\hypertarget{class_daten}{}\doxysection{Daten Class Reference}
+\label{class_daten}\index{Daten@{Daten}}
+
+
+Inherits Q\+Object.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_daten_aa5ac02a86baf17240c131d25bd6c30fe}{Daten}} (Q\+Object $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Konstruktor -\/ erstellt ein Objekt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_daten_a9effa045e75b681e96d35c80a787c25e}{init\+Combo\+Box}} (Q\+Combo\+Box $\ast$cb)
+\begin{DoxyCompactList}\small\item\em Initialisierung der Combo\+Box mit Grundeinstellung. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_daten_a17925e735e328f1433cf57b9f79c0f6b}{get\+Brennweite}} (const Q\+Combo\+Box $\ast$cb)
+\begin{DoxyCompactList}\small\item\em Rueckgabe der Brennweite der ausgewaehlten \mbox{\hyperlink{class_linse}{Linse}}. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{class_daten_a1970d341e2948afc2efddb0f7dee990d}{get\+Objektweite}} (const Q\+Line\+Edit $\ast$l)
+\begin{DoxyCompactList}\small\item\em Rueckgabe der Brennweite der ausgewählten \mbox{\hyperlink{class_linse}{Linse}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_daten_aa5ac02a86baf17240c131d25bd6c30fe}\label{class_daten_aa5ac02a86baf17240c131d25bd6c30fe}} 
+\index{Daten@{Daten}!Daten@{Daten}}
+\index{Daten@{Daten}!Daten@{Daten}}
+\doxysubsubsection{\texorpdfstring{Daten()}{Daten()}}
+{\footnotesize\ttfamily Daten\+::\+Daten (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Konstruktor -\/ erstellt ein Objekt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Q\+Widget} & $\ast$parent -\/ aktuelle Anwendung \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_daten_a17925e735e328f1433cf57b9f79c0f6b}\label{class_daten_a17925e735e328f1433cf57b9f79c0f6b}} 
+\index{Daten@{Daten}!getBrennweite@{getBrennweite}}
+\index{getBrennweite@{getBrennweite}!Daten@{Daten}}
+\doxysubsubsection{\texorpdfstring{getBrennweite()}{getBrennweite()}}
+{\footnotesize\ttfamily int Daten\+::get\+Brennweite (\begin{DoxyParamCaption}\item[{const Q\+Combo\+Box $\ast$}]{cb }\end{DoxyParamCaption})}
+
+
+
+Rueckgabe der Brennweite der ausgewaehlten \mbox{\hyperlink{class_linse}{Linse}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Pointer} & zu Q\+Combo\+Box cb\+Brennweite \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0\+: keine gewaehlte \mbox{\hyperlink{class_linse}{Linse}} sonst\+: Brennweite der gewaehlten \mbox{\hyperlink{class_linse}{Linse}} in mm 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_daten_a1970d341e2948afc2efddb0f7dee990d}\label{class_daten_a1970d341e2948afc2efddb0f7dee990d}} 
+\index{Daten@{Daten}!getObjektweite@{getObjektweite}}
+\index{getObjektweite@{getObjektweite}!Daten@{Daten}}
+\doxysubsubsection{\texorpdfstring{getObjektweite()}{getObjektweite()}}
+{\footnotesize\ttfamily Q\+String Daten\+::get\+Objektweite (\begin{DoxyParamCaption}\item[{const Q\+Line\+Edit $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+Rueckgabe der Brennweite der ausgewählten \mbox{\hyperlink{class_linse}{Linse}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Pointer} & zu Q\+Line\+Edit le\+Objektweite \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Eingabe der Q\+Line\+Edit le\+Objektweite im String-\/\+Format 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_daten_a9effa045e75b681e96d35c80a787c25e}\label{class_daten_a9effa045e75b681e96d35c80a787c25e}} 
+\index{Daten@{Daten}!initComboBox@{initComboBox}}
+\index{initComboBox@{initComboBox}!Daten@{Daten}}
+\doxysubsubsection{\texorpdfstring{initComboBox()}{initComboBox()}}
+{\footnotesize\ttfamily void Daten\+::init\+Combo\+Box (\begin{DoxyParamCaption}\item[{Q\+Combo\+Box $\ast$}]{cb }\end{DoxyParamCaption})}
+
+
+
+Initialisierung der Combo\+Box mit Grundeinstellung. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Pointer} & zu Q\+Combo\+Box cb\+Brennweite \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Auto\+Focus/daten.\+h\item 
+Auto\+Focus/daten.\+cpp\end{DoxyCompactItemize}
